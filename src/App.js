@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import AddExpanses from './components/AddExpanses';
+import Budget from './components/Budget';
+import Expanse from './components/Expanse';
+import ExpanseList from './components/ExpanseList';
+import Remaining from './components/Remaining';
+import SetBudget from './components/SetBudget';
+import { AppProvider } from './Context/AppContext'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppProvider>
+      <main className="App">
+        <h1 className='app-title'>Budget Tracker</h1>
+        <SetBudget/>
+        <div className='app-dashboard'>
+          <Budget/>
+          <Remaining/>
+          <Expanse/>
+        </div> 
+        <h1 className='app-title'>Expenses List</h1>
+        <div className='app-list'>
+            <ExpanseList/>
+        </div>
+        <h1 className='app-title'>Add Expanse</h1>
+        <div className='app-addExpanses'>
+          <AddExpanses/>
+        </div>
+      </main>
+    </AppProvider>
   );
 }
 
